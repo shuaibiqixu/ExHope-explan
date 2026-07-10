@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>操作指南</title>
+    <title>注意事项</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -32,71 +32,25 @@
         .page {
             max-width: 440px;
             margin: 0 auto;
-            padding: 0 16px;
         }
 
-        /* Tab bar */
-        .tabs {
+        .page-header {
             position: sticky;
             top: 0;
             z-index: 10;
-            background: #ffffff;
-            padding: 16px 16px 0;
-            margin: 0 -16px;
-            display: flex;
-            border-bottom: 1px solid #e0e0e0;
+            background: #fff;
+            padding: 16px;
+            text-align: center;
         }
 
-        .tab {
-            flex: 1;
-            background: none;
-            border: none;
-            font: inherit;
-            font-size: .87rem;
-            font-weight: 500;
-            color: #999;
-            padding: 10px 0 12px;
-            cursor: pointer;
-            position: relative;
-            transition: color .25s;
-        }
-
-        .tab.active {
-            color: #000;
+        .page-title {
+            font-size: 1.1rem;
             font-weight: 700;
+            color: #000;
         }
 
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 20%;
-            right: 20%;
-            height: 2px;
-            background: #000;
-            border-radius: 2px;
-        }
-
-        /* 滑动容器 */
-        .swipe-wrap {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .swipe-track {
-            display: flex;
-            transition: transform .3s cubic-bezier(.25, .46, .45, .94);
-            will-change: transform;
-        }
-
-        .swipe-track.dragging {
-            transition: none;
-        }
-
-        .panel {
-            flex: none;
-            width: 100%;
-            padding: 20px 0 0;
+        .page-body {
+            padding: 14px 16px 0;
         }
 
         /* 通用卡片 */
@@ -126,14 +80,6 @@
             margin-bottom: 0
         }
 
-        .card p .sub-n {
-            display: inline-block;
-            min-width: 18px;
-            font-weight: 700;
-            font-size: .72rem;
-            color: #000;
-        }
-
         .card p strong {
             color: #000;
             font-weight: 700
@@ -155,152 +101,40 @@
 
 <div class="page">
 
-    <div class="tabs">
-        <button class="tab active" data-t="0">操作流程</button>
-        <button class="tab" data-t="1">其它说明</button>
+    <div class="page-header">
+        <div class="page-title">注意事项</div>
     </div>
 
-    <div class="swipe-wrap">
-        <div class="swipe-track" id="swipeTrack">
-
-            <!-- Panel 1 -->
-            <div class="panel" id="flow">
-                <div class="card">
-                    <div class="card-title">1. 前期准备</div>
-                    <p>前往优蓝APP登录与本软件账号一致的账号</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">2. 选择视频</div>
-                    <p>在 <strong>优蓝 App</strong> 内<strong>收藏</strong>你想要解密或下载的视频</p>
-                    <p>注意要收藏到<strong>"默认：全部"</strong>内</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">3. 同步视频</div>
-                    <p>进入本软件，从列表中选择要操作的视频，如果没有则下拉刷新</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">4. 解密视频</div>
-                    <p><span class="sub-n">4.1</span> 选择视频标题，点击解密按钮，等待进度条走完</p>
-                    <p><span class="sub-n">4.2</span> 进度条在 100% <strong>之前</strong>就会解密成功；走到 100% 则解密失败
-                    </p>
-                    <p><span class="sub-n">4.3</span> 解密成功后进入校验流程，校验结果不影响下一步</p>
-                    <p><span class="sub-n">4.4</span> 校验结束后可选择在线播放或下载</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">5. 购买视频</div>
-                    <p><span class="sub-n">5.1</span> 选择视频标题，点击购买按钮</p>
-                    <p><span class="sub-n">5.2</span> 消耗与视频所需 <strong>等额金币</strong> 购买，余额可在主页查看</p>
-                    <p><span class="sub-n">5.3</span> 购买完成后选择在线播放或下载</p>
-                    <p><span class="sub-n">5.4</span> 注意购买后并不会保存，下次打开需<strong>重新购买</strong>，所以尽量先下后看
-                    </p>
-                </div>
-                <div class="foot-note">解密或购买均需<strong>开通会员</strong>后使用</div>
-            </div>
-
-            <!-- Panel 2 -->
-            <div class="panel" id="notes">
-                <div class="card">
-                    <div class="card-title">解密失败</div>
-                    <p>两次解密失败后大概率不会成功，可选择金币购买或放弃。</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">成功率</div>
-                    <p>新发布的视频解密成功率 <strong>&gt; 90%</strong>，发布时间越早成功率越低。</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">无权访问</div>
-                    <p>进入一次<strong>优蓝APP</strong>即可解决</p>
-                </div>
-                <div class="card">
-                    <div class="card-title">存储规则</div>
-                    <p>解密成功或购买成功后<strong>不会自动保存</strong>，只有下载才会保存到本地，否则下次观看需重新解密或购买。
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="card-title">作者联系方式</div>
-                    <p>QQ：3565098969</p>
-                    <p>VX：qxqyywqx</p>
-                </div>
-                <div class="foot-note">重要内容记得下载到本地，避免重复操作</div>
-            </div>
-
+    <div class="page-body">
+        <div class="card">
+            <div class="card-title">视频列表</div>
+            <p>只展示最近收藏的十条视频</p>
         </div>
+        <div class="card">
+            <div class="card-title">解密失败</div>
+            <p>两次解密失败后大概率不会成功，可选择金币购买或放弃</p>
+        </div>
+        <div class="card">
+            <div class="card-title">成功率</div>
+            <p>新发布的视频解密成功率 <strong>&gt; 90%</strong>，发布时间越早成功率越低</p>
+        </div>
+        <div class="card">
+            <div class="card-title">无权访问/一直加载</div>
+            <p>进入一次<strong>优蓝APP</strong>即可解决</p>
+        </div>
+        <div class="card">
+            <div class="card-title">存储规则</div>
+            <p>解密成功或购买成功后<strong>不会自动保存</strong>，只有下载才会保存到本地，否则下次观看需重新解密或购买</p>
+        </div>
+        <div class="card">
+            <div class="card-title">作者联系方式</div>
+            <p>QQ：3565098969</p>
+            <p>VX：qxqyywqx</p>
+        </div>
+        <div class="foot-note">重要内容记得下载到本地，避免重复操作</div>
     </div>
 
 </div>
-
-<script>
-    const tabs = document.querySelectorAll('.tab');
-    const track = document.getElementById('swipeTrack');
-    const panels = track.children;
-    const totalPanels = panels.length;
-    let current = 0;
-    let startX = 0;
-    let startY = 0;
-    let moveX = 0;
-    let isDragging = false;
-    let isScrolling = null;
-
-    function go(index) {
-        if (index < 0 || index >= totalPanels) return;
-        current = index;
-        track.style.transform = 'translateX(' + (-current * 100) + '%)';
-        tabs.forEach(function (t, i) {
-            t.classList.toggle('active', i === current);
-        });
-    }
-
-    tabs.forEach(function (t) {
-        t.addEventListener('click', function () {
-            go(parseInt(t.dataset.t));
-        });
-    });
-
-    track.addEventListener('touchstart', function (e) {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        moveX = 0;
-        isDragging = false;
-        isScrolling = null;
-        track.classList.remove('dragging');
-    }, {passive: true});
-
-    track.addEventListener('touchmove', function (e) {
-        var dx = e.touches[0].clientX - startX;
-        var dy = e.touches[0].clientY - startY;
-
-        if (isScrolling === null) {
-            isScrolling = Math.abs(dy) > Math.abs(dx);
-        }
-
-        if (isScrolling) return;
-
-        isDragging = true;
-        track.classList.add('dragging');
-        moveX = dx;
-
-        var offset = -current * track.offsetWidth + moveX;
-        track.style.transform = 'translateX(' + offset + 'px)';
-    }, {passive: true});
-
-    track.addEventListener('touchend', function () {
-        track.classList.remove('dragging');
-        if (!isDragging) return;
-
-        var threshold = track.offsetWidth * 0.2;
-        if (Math.abs(moveX) > threshold) {
-            if (moveX < 0 && current < totalPanels - 1) go(current + 1);
-            else if (moveX > 0 && current > 0) go(current - 1);
-            else go(current);
-        } else {
-            go(current);
-        }
-
-        isDragging = false;
-    });
-
-    go(0);
-</script>
 
 </body>
 </html>
