@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>注意事项</title>
+    <title>支付向导</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -34,26 +34,10 @@
             margin: 0 auto;
         }
 
-        .page-header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: #fff;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .page-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #000;
-        }
-
         .page-body {
             padding: 14px 16px 0;
         }
 
-        /* 通用卡片 */
         .card {
             background: #fff;
             border-radius: 12px;
@@ -85,7 +69,37 @@
             font-weight: 700
         }
 
-        /* 底部提示条 */
+        .hl {
+            color: #1A73E8;
+            font-weight: 700;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            margin-bottom: 10px;
+        }
+
+        .step-list li:last-child {
+            margin-bottom: 0
+        }
+
+        .step-title {
+            font-size: .8rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .step-desc {
+            font-size: .8rem;
+            color: #000;
+            line-height: 1.75;
+        }
+
         .foot-note {
             margin-top: 16px;
             background: #fff;
@@ -95,46 +109,193 @@
             color: #555;
             text-align: center;
         }
+
+        .warn-box {
+            background: #fff5f5;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 8px;
+        }
+
+        .warn-box p {
+            color: #e04040 !important;
+            font-size: .78rem !important;
+            margin-bottom: 0 !important;
+        }
+
+        .pay-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .pay-btn {
+            flex: 1;
+            padding: 12px 0;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            font-size: .85rem;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: opacity .15s;
+        }
+
+        .pay-btn:active {
+            opacity: .7;
+        }
+
+        .pay-btn-alipay {
+            background: #1677FF;
+        }
+
+        .pay-btn-wxpay {
+            background: #07C160;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: background .25s ease;
+        }
+
+        .modal-overlay.active {
+            background: rgba(0, 0, 0, .65);
+            pointer-events: auto;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-box {
+            width: 80vw;
+            max-width: 320px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px 16px 16px;
+            text-align: center;
+            transform: scale(.92);
+            opacity: 0;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+
+        .modal-box img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .modal-close {
+            margin-top: 14px;
+            display: inline-block;
+            padding: 8px 32px;
+            border: none;
+            border-radius: 8px;
+            background: #f2f2f2;
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            font-size: .82rem;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: background .15s;
+        }
+
+        .modal-close:active {
+            background: #e0e0e0;
+        }
     </style>
 </head>
 <body>
 
 <div class="page">
 
-    <div class="page-header">
-        <div class="page-title">注意事项</div>
-    </div>
-
     <div class="page-body">
+
         <div class="card">
-            <div class="card-title">视频列表</div>
-            <p>只展示最近收藏的十条视频</p>
+            <div class="card-title">如何购买</div>
+            <ul class="step-list">
+                <li>
+                    <div class="step-title">1. 复制账号</div>
+                    <div class="step-desc">回到主页，点击随机账号卡片，自动复制账号到剪切板</div>
+                </li>
+                <li>
+                    <div class="step-title">2. 选择支付方式</div>
+                    <div class="step-desc">点击下方对应按钮即可</div>
+                </li>
+                <li>
+                    <div class="step-title">3. 输入金额（≥ 20 元）</div>
+                </li>
+                <li>
+                    <div class="step-title">4. 备注账号</div>
+                    <div class="step-desc">忘记备注请联系 QQ：3565098969</div>
+                </li>
+            </ul>
         </div>
+
         <div class="card">
-            <div class="card-title">解密失败</div>
-            <p>两次解密失败后大概率不会成功，可选择金币购买或放弃</p>
+            <div class="card-title">金币到账时间</div>
+            <p>购买后 <span class="hl">24 小时内</span>到账均属正常，请耐心等待</p>
+            <p>超过 <span class="hl">24 小时</span>仍未到账，请通过 QQ：3565098969 联系我们</p>
+            <div class="warn-box">
+                <p><strong>不支持退款，请确认需要后再购买</strong></p>
+            </div>
         </div>
+
         <div class="card">
-            <div class="card-title">成功率</div>
-            <p>新发布的视频解密成功率 <strong>&gt; 90%</strong>，发布时间越早成功率越低</p>
+            <div class="card-title">最低支付金额</div>
+            <p>单次支付金额必须 <span class="hl">≥ 20 元</span>，不足 20 元的订单将被忽略</p>
         </div>
+
         <div class="card">
-            <div class="card-title">无权访问/一直加载</div>
-            <p>进入一次<strong>优蓝APP</strong>即可解决</p>
+            <div class="card-title">选择支付方式</div>
+            <div class="pay-btns">
+                <button class="pay-btn pay-btn-alipay" onclick="showPay('./AliPay.png')">支付宝</button>
+                <button class="pay-btn pay-btn-wxpay" onclick="showPay('./WeChatPay.png')">微信</button>
+            </div>
         </div>
-        <div class="card">
-            <div class="card-title">存储规则</div>
-            <p>解密成功或购买成功后<strong>不会自动保存</strong>，只有下载才会保存到本地，否则下次观看需重新解密或购买</p>
-        </div>
-        <div class="card">
-            <div class="card-title">作者联系方式</div>
-            <p>QQ：3565098969</p>
-            <p>VX：qxqyywqx</p>
-        </div>
-        <div class="foot-note">重要内容记得下载到本地，避免重复操作</div>
+
+        <div class="foot-note">支付前请仔细确认账号与金额</div>
+
     </div>
 
 </div>
+
+<div class="modal-overlay" id="modal" onclick="closePay(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+        <img id="modalImg" src="" alt="支付二维码">
+        <button class="modal-close" onclick="hidePay()">关闭</button>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById('modal');
+    var modalImg = document.getElementById('modalImg');
+
+    function showPay(src) {
+        modalImg.src = src;
+        requestAnimationFrame(function () {
+            modal.classList.add('active');
+        });
+    }
+
+    function hidePay() {
+        modal.classList.remove('active');
+    }
+
+    function closePay(e) {
+        if (e.target === modal) hidePay();
+    }
+</script>
 
 </body>
 </html>
