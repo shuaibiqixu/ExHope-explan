@@ -166,6 +166,11 @@
             transition: background .25s ease;
         }
 
+        .modal-overlay.active {
+            background: rgba(0, 0, 0, .45);
+            pointer-events: auto;
+        }
+
         .modal-overlay.active .modal-box {
             transform: scale(1);
             opacity: 1;
