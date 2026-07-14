@@ -38,6 +38,24 @@
             padding: 14px 16px 0;
         }
 
+        .top-banner {
+            background: linear-gradient(135deg, #1A73E8, #4A90E8);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: .02em;
+            animation: bannerPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes bannerPulse {
+            0%, 100% { box-shadow: 0 2px 12px rgba(26,115,232,.25); }
+            50% { box-shadow: 0 2px 20px rgba(26,115,232,.45); }
+        }
+
         .card {
             background: #fff;
             border-radius: 12px;
@@ -220,6 +238,8 @@
 <div class="page">
 
     <div class="page-body">
+
+        <div class="top-banner">首次使用联系 ExHope 可试用一天</div>
 
         <div class="card">
             <div class="card-title">如何购买</div>
