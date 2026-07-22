@@ -248,7 +248,7 @@
 
     <div class="page-body">
 
-        <div class="top-banner">充值2元可试用24小时（仅首次可用）</div>
+<!--        <div class="top-banner">充值2元可试用24小时（仅首次可用）</div>-->
 
         <div class="card">
             <div class="card-title">如何购买</div>
@@ -262,14 +262,22 @@
                     <div class="step-desc">点击下方对应按钮即可</div>
                 </li>
                 <li>
-                    <div class="step-title">3. 输入金额（≥ 10 元）</div>
-                    <div class="step-desc">仅首次试用2元<br>注：会员需30</div>
+                    <div class="step-title">3. 输入金额（≥ 5 元）</div>
+                    <div class="step-desc">每次充值不能低于5元</div>
                 </li>
                 <li>
                     <div class="step-title">4. 备注账号</div>
                     <div class="step-desc">点击备注/转账说明，输入刚刚复制的账号，忘记备注请联系ExHope</div>
                 </li>
             </ul>
+        </div>
+
+         <div class="card">
+            <div class="card-title">选择支付方式</div>
+            <div class="pay-btns">
+                <button class="pay-btn pay-btn-alipay" onclick="showPay('./AliPay.png')">支付宝</button>
+                <button class="pay-btn pay-btn-wxpay" onclick="showPay('./WeChatPay.png')">微信</button>
+            </div>
         </div>
 
         <div class="card">
@@ -283,22 +291,15 @@
 
         <div class="card">
             <div class="card-title">最低支付金额</div>
-            <p>单次支付金额必须 <span class="hl">≥ 10 元</span>，不足 10 元的订单将被忽略</p>
+            <p>单次支付金额必须 <span class="hl">≥ 5 元</span>，不足 5 元的订单将被忽略</p>
         </div>
 
         <div class="card">
             <div class="card-title">联系方式</div>
             <p>QQ：3565098969</p>
-            <p>VX：qxqyywqx</p>
         </div>
 
-        <div class="card">
-            <div class="card-title">选择支付方式</div>
-            <div class="pay-btns">
-                <button class="pay-btn pay-btn-alipay" onclick="showPay('./AliPay.png')">支付宝</button>
-                <button class="pay-btn pay-btn-wxpay" onclick="showPay('./WeChatPay.png')">微信</button>
-            </div>
-        </div>
+
 
         <div class="foot-note">支付前请仔细确认账号与金额</div>
 
